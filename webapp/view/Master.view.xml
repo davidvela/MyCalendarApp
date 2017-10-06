@@ -1,0 +1,77 @@
+<mvc:View controllerName="mcap.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.f" displayBlock="true" height="100%">
+	<f:DynamicPage id="dynamicPageId">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="My Calendar"/>
+				</f:heading>
+				<f:actions>
+					<ToolbarSpacer/>
+					<OverflowToolbarButton icon="sap-icon://add" text="Add" type="Transparent" press="onAdd"/>
+					<OverflowToolbarButton icon="sap-icon://edit" text="Edit" type="Transparent"/>
+					<OverflowToolbarButton icon="sap-icon://delete" text="Delete" type="Transparent"/>
+					<Button icon="sap-icon://post" text="Toggle Footer" type="Transparent" press="onToggleFooter"/>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<!-- DynamicPage Header -->
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<f:content>
+					<layout:Grid defaultSpan="XL4 L6 M6 S12">
+						<layout:VerticalLayout>
+							<Label text="Name:"/>
+							<Select id="slName" width="200px" forceSelection="true" change="onSelectChange" items="{ path: '/CalNames' }">
+								<core:Item key="{key}" text="{name}"/>
+							</Select>
+						</layout:VerticalLayout>
+						<layout:VerticalLayout>
+							<Label text="Category:"/>
+							<Select id="slCategory" width="200px" change="onSelectChange" forceSelection="true" items="{ path: '/CalCategories' }">
+								<core:Item key="{key}" text="{name}"/>
+							</Select>
+						</layout:VerticalLayout>
+					</layout:Grid>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<!-- DynamicPage Content -->
+		<f:content>
+			<VBox class="sapUiSmallMargin">
+			<mvc:XMLView id="nestedView" viewName="mcap.view.MasterCalP" type="XML"></mvc:XMLView>					
+			<Table id="idProductsTable" inset="false" items="{ path: '/CalCollection' }">
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Name"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Category"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="SupplierName"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation" press="handleItemPress">
+						<cells>
+							<ObjectIdentifier title="{Name}" text="{ProductId}"/>
+							<Text text="{Category}"/>
+							<Text text="{SupplierName}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			</VBox>
+		</f:content>
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

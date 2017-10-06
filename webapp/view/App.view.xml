@@ -1,0 +1,18 @@
+<mvc:View controllerName="mcap.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.f"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" height="100%">
+	<FlexibleColumnLayout id="fcl">
+		<beginColumnPages>
+			<mvc:XMLView id="beginView" viewName="mcap.view.Master"/>
+		</beginColumnPages>
+	</FlexibleColumnLayout>
+	<!-- old sap.m.App
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Label text="Hola"></Label>
+				</content>
+			</Page>
+		</pages>
+	</App> -->
+</mvc:View>

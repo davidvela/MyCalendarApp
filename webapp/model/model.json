@@ -1,0 +1,43 @@
+{
+  "title" : "To Do List",
+  "showFooter" : false,
+  "headerExpanded": true,
+  "titleClickable": true,
+  "CalCollection": [
+    {
+      "ProductId": "0001",
+      "Name": "Power Projector 4713",
+      "Category": "Projector",
+      "SupplierName": "Titanium"
+    },
+    {
+      "ProductId": "0002",
+      "Name": "Power Projector 4713",
+      "Category": "Projector",
+      "SupplierName": "Titanium"
+    }
+  ],
+  "CalNames" : [
+    {
+      "key" : "",
+      "name" : "All"
+    },
+    {
+      "key" : "High End Laptop 2b",
+      "name" : "High End Laptop 2b"
+    }
+  ],
+  "CalCategories" : [
+    {
+      "key" : "",
+      "name" : "All"
+    },
+    {
+      "key" : "PA",
+      "name" : "Project A"
+    }
+  ],
+  "Filter" : {
+    "text": "Filtered by: nothing"
+  }
+}

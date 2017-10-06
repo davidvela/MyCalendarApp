@@ -1,0 +1,128 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "mcap",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "mcap.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.46.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ui.layout": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "mcap.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/model.json"
+			},
+			"detailDetail": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/model2.json"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "mcap.view",
+				"controlId": "fcl",
+				"transition": "slide"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "masterName",
+				"target": [
+					"master"
+				],
+				"layout": "OneColumn"
+			}, {
+				"pattern": "detail/{detail-item}",
+				"name": "detailName",
+				"target": [
+					"master",
+					"detail"
+				],
+				"layout": "TwoColumnsMidExpanded"
+			}, {
+				"pattern": "detail/{detail-item}/detaildetail/{detaildetail-item}",
+				"name": "detailDetailName",
+				"target": [
+					"master",
+					"detail",
+					"detailDetail"
+				],
+				"layout": "ThreeColumnsEndExpanded"
+			}],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"controlAggregation": "midColumnPages"
+				},
+				"detailDetail": {
+					"viewName": "DetailDetail",
+					"controlAggregation": "endColumnPages"
+				}
+			}
+		}
+	}
+}
