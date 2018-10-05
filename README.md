@@ -8,3 +8,5 @@ app preview:
 
 For the time being this are the steps I did: 
 1. Create Fiori 2.0 App with Calendar information
+
+calendar app... idea. 
